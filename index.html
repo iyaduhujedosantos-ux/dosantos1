@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f4ef">
+  <meta name="description" content="A study companion that turns your book into topic-by-topic reading notes and multiple-choice practice.">
+  <title>Fieldnotes — your book, made learnable</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Fieldnotes home"><span class="brand-mark">f.</span><span>fieldnotes</span></a>
+    <div class="topbar-right"><span class="status-dot"></span><span id="book-status">Preparing your book…</span><button class="quiet-button" id="choose-pdf" type="button">Choose a PDF</button><input id="pdf-upload" type="file" accept="application/pdf,.pdf" hidden></div>
+  </header>
+
+  <main id="home" class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-label">YOUR STUDY GUIDE</div>
+      <div id="book-title" class="book-title">Your book</div>
+      <div id="topic-count" class="topic-count">Finding topics…</div>
+      <div class="sidebar-label topic-label">TOPICS</div>
+      <nav id="topic-nav" class="topic-nav" aria-label="Book topics"><div class="nav-placeholder">Loading your reading guide…</div></nav>
+      <div class="sidebar-note"><span class="note-icon">✳</span><span>Notes and practice questions are drawn from the text of your PDF.</span></div>
+    </aside>
+
+    <section class="main-content" aria-live="polite">
+      <div id="loading" class="loading-panel">
+        <div class="loading-orbit"><span></span></div>
+        <p class="eyebrow">A MOMENT, PLEASE</p>
+        <h1>Getting to know your book.</h1>
+        <p class="muted">Reading the pages and organizing the topics into a study guide.</p>
+        <div class="progress-track"><div id="progress-bar" class="progress-bar"></div></div>
+        <p id="progress-label" class="progress-label">Opening PDF…</p>
+      </div>
+      <div id="error-panel" class="error-panel" hidden>
+        <div class="error-icon">↗</div><p class="eyebrow">WE COULDN’T OPEN THAT FILE</p><h1>Your study guide is one step away.</h1>
+        <p id="error-message" class="muted">Check that the PDF is available, or choose a PDF from your device.</p>
+        <button class="primary-button" id="error-choose" type="button">Choose a PDF</button>
+      </div>
+      <div id="welcome" class="welcome" hidden>
+        <div class="welcome-kicker"><span>YOUR BOOK, A LITTLE MORE UNDERSTANDABLE</span><span class="sparkle">✳</span></div>
+        <p class="eyebrow" id="chapter-kicker">READ &amp; PRACTICE</p>
+        <h1 id="topic-heading">Choose a topic to begin.</h1>
+        <p id="topic-intro" class="topic-intro">Your study guide is organized around the topics found in the book. Each lesson keeps the original text close, so you can learn in context.</p>
+        <div class="content-rule"><span></span><span>THE LESSON</span><span></span></div>
+        <article class="lesson-card"><div class="card-label"><span class="label-icon">✳</span> A CLOSER LOOK</div><div id="lesson-content" class="lesson-content"></div><div id="key-points" class="key-points" hidden></div></article>
+        <section class="quiz-section" aria-labelledby="quiz-title">
+          <div class="quiz-heading"><div><p class="eyebrow">CHECK YOUR UNDERSTANDING</p><h2 id="quiz-title">A quick practice.</h2><p class="muted">Choose the best answer. You’ll see the answer and an explanation right away.</p></div><div id="quiz-score" class="quiz-score" hidden></div></div>
+          <div id="quiz-list" class="quiz-list"></div>
+        </section>
+        <footer class="page-footer"><span>Keep going, one topic at a time.</span><span>FIELDNOTES&nbsp; ✳</span></footer>
+      </div>
+    </section>
+  </main>
+  <noscript><p class="noscript">Please enable JavaScript to read your PDF study guide.</p></noscript>
+</body>
+</html>
